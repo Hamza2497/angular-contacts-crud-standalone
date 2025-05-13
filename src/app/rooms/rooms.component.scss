@@ -1,1 +1,9 @@
+table.table tbody tr.odd td {
+    background-color: #d65050 !important;
+    color: white !important;
+}
 
+table.table tbody tr.even td {
+    background-color: #1576c0 !important;
+    color: white !important;
+}
