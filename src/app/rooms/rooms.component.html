@@ -8,7 +8,8 @@
 @if (rooms.availableRooms > 0) {
     <div >
     Rooms List
-    <table>
+    <table class="table">
+        <thead>
         <tr>
             <th>Index</th>
             <th>even/odd</th>
@@ -19,6 +20,8 @@
             <th>checkin Time</th>
             <th>Rating</th>
         </tr>
+        </thead>
+        <tbody>
         @for (room of roomList; track room.roomNumber; let e = $even; let o = $odd; let i= $index) {
         <tr [ngClass]="e? 'even' : 'odd'">
             <td>{{ i }}</td>
@@ -30,7 +33,9 @@
             <td>{{ room.checkinTime | date : 'short'}}</td>
             <td>{{ room.Rating | number: '1.1-1' }}</td>
         </tr>
-    }
+        }
+        </tbody>
+
     </table>
 </div>
 }
