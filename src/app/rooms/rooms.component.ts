@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Room, RoomList } from './rooms';
 
 @Component({
+  standalone: true,
   selector: 'hinv-rooms',
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss',
