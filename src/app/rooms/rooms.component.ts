@@ -1,18 +1,17 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Room, RoomList } from './rooms';
 import { RoomsListComponent } from './rooms-list/rooms-list.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  standalone: true,
   selector: 'hinv-rooms',
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss',
-  imports: [CommonModule, RoomsListComponent]
+  imports: [CommonModule, RoomsListComponent, HeaderComponent]
 })
-export class RoomsComponent {
+export class RoomsComponent implements OnInit, AfterViewInit {
 
-hotelname="Hotel California";
 numberOfRooms=10;
 hiderooms=false;
 
@@ -24,9 +23,12 @@ rooms: Room = {
 
 roomList: RoomList [] = [];
 
+@ViewChild(HeaderComponent, { static: true }) headerComponent!: HeaderComponent;
+
 constructor() {}
 
 ngOnInit(): void {
+  console.log(this.headerComponent);
   this.roomList= [{
   roomNumber: 101,
   roomType: 'Deluxe',
@@ -73,6 +75,10 @@ ngOnInit(): void {
 onRoomSelected(room: any): void {
     console.log('Selected room:', room);
 }
+
+  ngAfterViewInit(): void {
+  console.log(this.headerComponent);
+  }
 
 addRoom(){
   const room: RoomList = {
