@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Room, RoomList } from './rooms';
+import { RoomsListComponent } from './rooms-list/rooms-list.component';
 
 @Component({
   standalone: true,
   selector: 'hinv-rooms',
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss',
-  imports: [CommonModule]
+  imports: [CommonModule, RoomsListComponent]
 })
 export class RoomsComponent {
 
@@ -21,7 +22,12 @@ rooms: Room = {
   bookedRooms: 5,
 }
 
-roomList: RoomList [] = [{
+roomList: RoomList [] = [];
+
+constructor() {}
+
+ngOnInit(): void {
+  this.roomList= [{
   roomNumber: 101,
   roomType: 'Deluxe',
   amenities: 'AC, TV, WiFi',
@@ -61,9 +67,16 @@ roomList: RoomList [] = [{
   checkoutTime: new Date('2025-10-02T12:00:00'),
   Rating: 5.0,
 }
-]
+];
+}
+
+onRoomSelected(room: any): void {
+    console.log('Selected room:', room);
+}
 
 toggle(){
 this.hiderooms=!this.hiderooms;
 }
+
+
 }
