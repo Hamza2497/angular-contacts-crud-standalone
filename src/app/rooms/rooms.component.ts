@@ -74,9 +74,22 @@ onRoomSelected(room: any): void {
     console.log('Selected room:', room);
 }
 
-toggle(){
-this.hiderooms=!this.hiderooms;
+addRoom(){
+  const room: RoomList = {
+    roomNumber: 105,
+    roomType: 'Family',
+    amenities: 'AC, TV, WiFi, Kitchen',
+    price: 150,
+    photos: 'https://example.com/family.jpg',
+    checkinTime: new Date('2025-10-01T14:00:00'),
+    checkoutTime: new Date('2025-10-02T12:00:00'),
+    Rating: 4.2,
+  };
+    this.roomList = [...this.roomList, room];
 }
 
+  toggle(){
+this.hiderooms=!this.hiderooms;
+}
 
 }

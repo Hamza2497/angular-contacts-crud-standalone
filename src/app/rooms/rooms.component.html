@@ -1,15 +1,17 @@
 <h1> welcome to {{hotelname}}</h1>
 
+<button class="btn btn-primary" (click)="toggle()">Number of Rooms</button>
 <div [hidden]="hiderooms">
-    number of rooms:
-<div [innerText]="numberOfRooms"></div>
+    <div [innerText]="numberOfRooms"></div>
 </div>
 
-<button (click)="toggle()">Toggle</button>
+<div>
+    <button class="btn btn-primary" (click)="addRoom()">Add a Room</button>
+</div>
 
 @if (rooms.availableRooms > 0) {
     <div>
-        <hinv-rooms-list [rooms]="roomList" (selectRoom)="onRoomSelected($event)"></hinv-rooms-list>
+        <hinv-rooms-list [rooms]="roomList" [title]="'Room List'" (selectRoom)="onRoomSelected($event)"></hinv-rooms-list>
     </div>
 }
 
