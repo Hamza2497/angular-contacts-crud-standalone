@@ -1,20 +1,18 @@
-import { AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { RoomsComponent} from './rooms/rooms.component';
+import { ContainerComponent } from "./container/container.component";
+import { EmployeeComponent } from "./employee/employee.component";
 
 @Component({
   selector: 'hinv-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: []
+  imports: [ContainerComponent, RoomsComponent, EmployeeComponent]
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
 
   title = 'hotelinventoryapp';
 
-  @ViewChild('user', {read: ViewContainerRef} ) vcr!: ViewContainerRef;
-
-  ngAfterViewInit(): void {
-  this.vcr.createComponent(RoomsComponent);
-}
+constructor() {}
 
 }

@@ -1,17 +1,17 @@
 <hinv-header></hinv-header>
 
-<button class="btn btn-primary" (click)="toggle()">Number of Rooms</button>
+<button class="btn btn-primary" (click)="toggle()">Rooms List</button>
 <div [hidden]="hiderooms">
+    <h6>Number of Rooms Available is:</h6>
     <div [innerText]="numberOfRooms"></div>
 </div>
 
-<div>
-    <button class="btn btn-primary" (click)="addRoom()">Add a Room</button>
-</div>
 
-@if (rooms.availableRooms > 0) {
-    <div>
+    <div *ngIf="!hiderooms">
         <hinv-rooms-list [rooms]="roomList" [title]="'Room List'" (selectRoom)="onRoomSelected($event)"></hinv-rooms-list>
     </div>
-}
+
+    <div>
+    <button class="btn btn-primary" (click)="addRoom()">Add a Room</button>
+</div>
 
