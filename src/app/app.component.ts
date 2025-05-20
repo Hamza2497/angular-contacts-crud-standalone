@@ -4,6 +4,7 @@ import { ContainerComponent } from "./container/container.component";
 import { EmployeeComponent } from "./employee/employee.component";
 
 @Component({
+  standalone: true,
   selector: 'hinv-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
