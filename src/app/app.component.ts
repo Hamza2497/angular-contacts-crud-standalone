@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { RoomsComponent} from './rooms/rooms.component';
 import { ContainerComponent } from "./container/container.component";
 import { EmployeeComponent } from "./employee/employee.component";
+import { LocalStorageToken } from './localstorage.token';
 
 @Component({
   standalone: true,
@@ -10,10 +11,14 @@ import { EmployeeComponent } from "./employee/employee.component";
   styleUrl: './app.component.scss',
   imports: [ContainerComponent, RoomsComponent, EmployeeComponent]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   title = 'hotelinventoryapp';
 
-constructor() {}
+constructor(@Inject(LocalStorageToken) private localStorage: Storage) {}
+
+  ngOnInit(): void {
+    this.localStorage.setItem('name', 'Hotel California');
+  }
 
 }
