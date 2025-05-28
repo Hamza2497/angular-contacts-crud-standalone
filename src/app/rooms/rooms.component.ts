@@ -30,7 +30,9 @@ roomList: RoomList [] = [];
 constructor(private roomsService: RoomsService) {}
 
 ngOnInit(): void {
-  this.roomList = this.roomsService.getRooms();
+  this.roomsService.getRooms().subscribe((rooms: RoomList[]) => {
+    this.roomList = rooms;
+  });
 }
 
 onRoomSelected(room: any): void {
@@ -43,14 +45,14 @@ onRoomSelected(room: any): void {
 
 addRoom(){
   const room: RoomList = {
-    roomNumber: 105,
+    roomNumber: '105',
     roomType: 'Family',
     amenities: 'AC, TV, WiFi, Kitchen',
     price: 150,
     photos: 'https://example.com/family.jpg',
     checkinTime: new Date('2025-10-01T14:00:00'),
     checkoutTime: new Date('2025-10-02T12:00:00'),
-    Rating: 4.2,
+    rating: 4.2,
   };
     this.roomList = [...this.roomList, room];
 }
