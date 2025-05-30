@@ -45,7 +45,7 @@ onRoomSelected(room: any): void {
 
 addRoom(){
   const room: RoomList = {
-    roomNumber: '105',
+    // roomNumber: '105',
     roomType: 'Family',
     amenities: 'AC, TV, WiFi, Kitchen',
     price: 150,
@@ -54,7 +54,39 @@ addRoom(){
     checkoutTime: new Date('2025-10-02T12:00:00'),
     rating: 4.2,
   };
-    this.roomList = [...this.roomList, room];
+    // this.roomList = [...this.roomList, room];
+    this.roomsService.addRoom(room).subscribe((data) => {
+      this.roomList = [...this.roomList, data];
+      console.log('Room added:', data);
+    })
+}
+
+editRoom(){
+    const room: RoomList = {
+    roomNumber: '103',
+    roomType: 'Family',
+    amenities: 'AC, TV, WiFi, Kitchen',
+    price: 150,
+    photos: 'https://example.com/family.jpg',
+    checkinTime: new Date('2025-10-01T14:00:00'),
+    checkoutTime: new Date('2025-10-02T12:00:00'),
+    rating: 4.2,
+  }
+  this.roomsService.editRoom(room).subscribe((data) => {
+    const index = this.roomList.findIndex(r => r.roomNumber === room.roomNumber);
+    if (index !== -1) {
+      this.roomList[index] = data;
+      this.roomList = [...this.roomList];
+    }
+    console.log('Room edited:', data);
+  });
+}
+
+deleteRoom(roomNumber: string){
+  this.roomsService.deleteRoom(roomNumber).subscribe(() => {
+    this.roomList = this.roomList.filter(room => room.roomNumber !== roomNumber);
+    console.log('Room deleted:', roomNumber);
+  });
 }
 
   toggle(){

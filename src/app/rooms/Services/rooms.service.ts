@@ -19,4 +19,16 @@ export class RoomsService {
   getRooms(){
     return this.http.get<RoomList[]>(this.Config.apiEndpoint);
   }
+
+  addRoom(room: RoomList){
+    return this.http.post<RoomList>(this.Config.apiEndpoint, room);
+  }
+
+  editRoom(room: RoomList){
+    return this.http.put<RoomList>(`${this.Config.apiEndpoint}/${room.roomNumber}`, room);
+  }
+
+  deleteRoom(roomNumber: string){
+    return this.http.delete<RoomList>(`${this.Config.apiEndpoint}/${roomNumber}`);
+  }
 }

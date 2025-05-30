@@ -65,14 +65,14 @@ export class RoomsService {
     return this.rooms.find((room) => room.roomNumber === id);
   }
 
-  update(id: string, updateRoomDto: UpdateRoomDto) {
-    return this.rooms.map((room) => {
-      if (room.roomNumber === id) {
-        return updateRoomDto;
-      }
-      return room;
-    });
+update(id: string, updateRoomDto: UpdateRoomDto) {
+  const index = this.rooms.findIndex(room => room.roomNumber === id);
+  if (index === -1) {
+    return null; // or throw an exception if you prefer
   }
+  this.rooms[index] = { ...this.rooms[index], ...updateRoomDto };
+  return this.rooms[index];
+}
 
   remove(id: string) {
     return this.rooms.filter((room) => room.roomNumber !== id);
