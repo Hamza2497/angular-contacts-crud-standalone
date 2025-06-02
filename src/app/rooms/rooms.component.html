@@ -7,11 +7,11 @@
 </div>
 
 
-    <div *ngIf="!hiderooms">
-        <hinv-rooms-list [rooms]="roomList" [title]="'Room List'" (selectRoom)="onRoomSelected($event)"></hinv-rooms-list>
-    </div>
+<div *ngIf="!hiderooms">
+    <hinv-rooms-list [rooms]="roomList" [title]="'Room List'" (selectRoom)="onRoomSelected($event)"></hinv-rooms-list>
+</div>
 
-    <div>
+<div>
     <button class="btn btn-primary" (click)="addRoom()">Add a Room</button>
     <button class="btn btn-secondary" (click)="editRoom()">Edit Room List</button>
     <button class="btn btn-danger" (click)="deleteRoom('102')">Delete Room</button>
