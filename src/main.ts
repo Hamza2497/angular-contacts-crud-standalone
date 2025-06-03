@@ -5,6 +5,8 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { requestInterceptor } from './app/request.interceptor';
 import { InitService } from './app/init.service';
 import { APP_INITIALIZER } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
 
 
 function initFactory(initService: InitService) {
@@ -21,7 +23,8 @@ bootstrapApplication(AppComponent, {
       useFactory: initFactory,
       deps: [InitService],
       multi: true
-    }
+    },
+    provideRouter(routes)
   ]
 })
 .catch((err) => console.error(err));

@@ -4,13 +4,15 @@ import { ContainerComponent } from "./container/container.component";
 import { EmployeeComponent } from "./employee/employee.component";
 import { LocalStorageToken } from './localstorage.token';
 import { InitService } from './init.service';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { NavigationComponent } from "./navigation/navigation.component";
 
 @Component({
   standalone: true,
   selector: 'hinv-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [ContainerComponent, RoomsComponent, EmployeeComponent]
+  imports: [ContainerComponent, RoomsComponent, EmployeeComponent, RouterOutlet, RouterLink, NavigationComponent]
 })
 export class AppComponent implements OnInit{
 

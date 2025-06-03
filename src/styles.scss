@@ -1,8 +1,7 @@
-@import"/Users/hamzahassaf/Desktop/Projects/Angular/hotelinventoryapp/src/app/app.component.scss";
+@import url('@angular/material/prebuilt-themes/azure-blue.css');
+// @import url("/Users/hamzahassaf/Desktop/Projects/Angular/hotelinventoryapp/src/app/app.component.scss");
 
 
 
-
-
-
-
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
