@@ -1,10 +1,11 @@
 import { Component, Input, OnInit, Output, EventEmitter, ChangeDetectionStrategy, OnChanges, SimpleChanges, input, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Room, RoomList } from '../rooms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'hinv-rooms-list',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './rooms-list.component.html',
   styleUrl: './rooms-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
