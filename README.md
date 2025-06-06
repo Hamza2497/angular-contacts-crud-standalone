@@ -4,7 +4,7 @@ This is a modern Angular CRUD (Create, Read, Update, Delete) application for man
 
 ## 🔧 Tech Stack
 
-- **Angular (v15+)**
+- **Angular (v19)**
 - **Standalone Components**
 - **Angular Forms** (Reactive Forms)
 - **Angular Router**
@@ -21,17 +21,6 @@ This is a modern Angular CRUD (Create, Read, Update, Delete) application for man
 - Routing and navigation
 - Component-based architecture using standalone components
 
-## 📁 Folder Structure
-
-```bash
-src/
-├── app/
-│   ├── components/
-│   ├── pages/
-│   ├── models/
-│   ├── services/
-│   └── main.ts (bootstrap with standalone components)
-
 ## 🧑‍💻 Getting Started
 
 ### Prerequisites
@@ -46,3 +35,26 @@ git clone https://github.com/your-username/angular-contacts-crud-standalone.git
 cd angular-contacts-crud-standalone
 npm install
 ng serve
+
+
+## 📁 Folder Structure (please advise folder structure is being updated as the project heads towards completion)
+
+```bash
+src/
+└── app/
+    ├── AppConfig/                 # App-wide config components or setup
+    ├── container/                # Possibly the root layout/shell
+    ├── employee/                 # Feature module or page for employees
+    ├── header/                   # Header component
+    ├── navigation/              # Navigation or sidebar component
+    ├── notfound/                # 404 page component
+    ├── rooms/                   # Feature module or page for rooms
+    ├── app.component.*          # Root Angular component (standalone)
+    ├── app.config.ts            # Main application configuration
+    ├── app.routes.ts            # App routing setup (standalone routes)
+    ├── init.service.ts          # Initialization logic or app startup service
+    ├── request.interceptor.ts   # HTTP request interceptor
+    └── localstorage.token.ts    # Token handling for local storage
+
+
+
