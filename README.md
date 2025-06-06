@@ -31,7 +31,7 @@ This is a modern Angular CRUD (Create, Read, Update, Delete) application for man
 ### Install and Run
 
 ```bash
-git clone https://github.com/your-username/angular-contacts-crud-standalone.git
+gh repo clone Hamza2497/angular-contacts-crud-standalone
 cd angular-contacts-crud-standalone
 npm install
 ng serve
