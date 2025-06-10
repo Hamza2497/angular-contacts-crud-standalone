@@ -4,7 +4,7 @@ import {
   setClassMetadata,
   ɵɵdefineInjector,
   ɵɵdefineNgModule
-} from "./chunk-LEZCLC5X.js";
+} from "./chunk-LRGD6IXK.js";
 
 // node_modules/@angular/cdk/fesm2022/platform.mjs
 var PlatformModule = class _PlatformModule {
@@ -22,4 +22,4 @@ var PlatformModule = class _PlatformModule {
     args: [{}]
   }], null, null);
 })();
-//# sourceMappingURL=chunk-DWQILJPX.js.map
+//# sourceMappingURL=chunk-V4FDRWD4.js.map

@@ -1,7 +1,7 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   ElementRef
-} from "./chunk-LEZCLC5X.js";
+} from "./chunk-LRGD6IXK.js";
 
 // node_modules/@angular/cdk/fesm2022/element-x4z00URv.mjs
 function coerceNumberProperty(value, fallbackValue = 0) {
@@ -21,4 +21,4 @@ export {
   coerceNumberProperty,
   coerceElement
 };
-//# sourceMappingURL=chunk-7233DXOT.js.map
+//# sourceMappingURL=chunk-7JKZGQVL.js.map

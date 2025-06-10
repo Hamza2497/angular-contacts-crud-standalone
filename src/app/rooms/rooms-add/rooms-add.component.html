@@ -1,0 +1,95 @@
+{{roomsForm.pristine | json}}
+<div class="alert alert-success" *ngIf="successMessage">
+    {{ successMessage }}
+</div>
+<form #roomsForm="ngForm" (ngSubmit)="addRoom(roomsForm)" class="[form]">
+    <div class="[formGroup]">
+    <input
+        required="true"
+        class="[formControl]"
+        type="text"
+        name="roomType"
+        [(ngModel)]="room.roomType"
+        placeholder="Room Type"
+    />
+    </div>
+    <div class="[formGroup]">
+    <input
+        #amenitiesInput="ngModel"
+        required="true"
+        minlength="8"
+        maxlength="200"
+        class="[formControl]"
+        type="text"
+        name="amenities"
+        [(ngModel)]="room.amenities"
+        placeholder="Amenities"
+    />
+    </div>
+    <div class="alert alert-danger" *ngIf="amenitiesInput.invalid && (amenitiesInput.dirty || amenitiesInput.touched)">
+        <small *ngIf="amenitiesInput.invalid && (amenitiesInput.dirty || amenitiesInput.touched)">
+            <span *ngIf="amenitiesInput.errors?.['required']">Amenities are required.</span>
+            <span *ngIf="amenitiesInput.errors?.['minlength']">Amenities must be at least 8 characters long.</span>
+            <span *ngIf="amenitiesInput.errors?.['maxlength']">Amenities cannot be more than 200 characters long.</span>
+        </small>
+    </div>
+    <div class="[formGroup]">
+    <input
+        required="true"
+        class="[formControl]"
+        type="number"
+        name="price"
+        [(ngModel)]="room.price"
+        placeholder="Price per Night"
+    />
+    </div>
+    <div class="[formGroup]">
+    <input
+        required="true"
+        pattern="https?://.+"
+        class="[formControl]"
+        type="url"
+        name="Photos"
+        [(ngModel)]="room.photos"
+        placeholder="Photos(URLs)"
+    />
+    </div>
+    <div class="alert alert-danger" *ngIf="roomsForm.controls['Photos']?.errors?.['pattern']">
+            Please enter a valid Image URL starting with http:// or https://.
+    </div>
+    <div class="[formGroup]">
+    <input
+        required="true"
+        class="[formControl]"
+        type="datetime"
+        name="CheckIn"
+        [(ngModel)]="room.checkinTime"
+        placeholder="Check-In Date"
+    />
+    </div>
+    <div class="[formGroup]">
+    <input
+        required="true"
+        class="[formControl]"
+        type="datetime"
+        name="CheckOut"
+        [(ngModel)]="room.checkoutTime"
+        placeholder="Check-Out Date"
+    />
+    </div>
+    <div class="[formGroup]">
+    <input
+        min="1"
+        max="5"
+        required="true"
+        class="[formControl]"
+        type="number"
+        name="rating"
+        [(ngModel)]="room.rating"
+        placeholder="Room Rating"
+    />
+    </div>
+    <div>
+    <button [disabled]="roomsForm.invalid" class="btn btn-primary" type="submit">Add Room</button>
+    </div>
+</form>
