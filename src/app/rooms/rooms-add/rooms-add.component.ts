@@ -3,11 +3,12 @@ import { RoomList } from '../rooms';
 import { RoomsService } from '../Services/rooms.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HoverDirective } from '../../hover.directive';
 
 @Component({
   standalone: true,
   selector: 'hinv-rooms-add',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, HoverDirective],
   templateUrl: './rooms-add.component.html',
   styleUrl: './rooms-add.component.scss'
 })
