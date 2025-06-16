@@ -1,9 +1,12 @@
-<form>
+<form #loginForm="ngForm">
     <div class="formGroup">
-        <input hinvHover color="#cbf5dd" type="email" autocomplete="email" class="form-control" placeholder="Provide your Email" name="name" [(ngModel)]="email">
+        <input #emailInput="ngModel" hinvEmailvalidator hinvHover color="#cbf5dd" type="email" autocomplete="email" class="form-control" placeholder="Provide your Email" name="name" [(ngModel)]="email"  required>
+        <div>
+            {{emailInput.errors | json}}
+        </div>
     </div>
     <div class="formGroup">
-        <input hinvHover color="#cbf5dd" type="password" autocomplete="current-password" class="form-control" placeholder="Enter your Password" name="password" [(ngModel)]="password">
+        <input hinvHover color="#cbf5dd" type="password" autocomplete="current-password" class="form-control" placeholder="Enter your Password" name="password" [(ngModel)]="password" required>
     </div>
     <div class="formGroup">
         <button class="btn btn-primary" (click)="login()">Login</button>
