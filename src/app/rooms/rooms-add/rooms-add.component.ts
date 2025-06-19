@@ -4,6 +4,7 @@ import { RoomsService } from '../Services/rooms.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HoverDirective } from '../../hover.directive';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -26,7 +27,7 @@ export class RoomsAddComponent implements OnInit {
 
   successMessage: string = '';
 
-  constructor(private roomService: RoomsService) { }
+  constructor(private roomService: RoomsService, private router: Router) { }
 
   ngOnInit(): void {
     // Initialization logic here
@@ -37,5 +38,9 @@ export class RoomsAddComponent implements OnInit {
       this.successMessage = `Room added successfully!`;
       roomsForm.resetForm();
     });
+  }
+
+  goBack(){
+    this.router.navigate(['/rooms']);
   }
 }

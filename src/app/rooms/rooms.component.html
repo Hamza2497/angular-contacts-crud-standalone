@@ -12,8 +12,10 @@
 </div>
 
 <div>
-    <!-- <button class="btn btn-primary" (click)="addRoom()">Add a Room</button> -->
+    <button class="btn btn-primary" [routerLink]="['add']">Add a Room</button>
     <button class="btn btn-secondary" (click)="editRoom()">Edit Room List</button>
     <button class="btn btn-danger" (click)="deleteRoom('102')">Delete Room</button>
 </div>
 
+
+<router-outlet></router-outlet>

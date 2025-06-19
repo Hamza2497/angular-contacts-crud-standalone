@@ -4,13 +4,15 @@ import { Room, RoomList } from './rooms';
 import { RoomsListComponent } from './rooms-list/rooms-list.component';
 import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from './Services/rooms.service';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'hinv-rooms',
   templateUrl: './rooms.component.html',
   styleUrl: './rooms.component.scss',
-  imports: [CommonModule, RoomsListComponent, HeaderComponent]
+  imports: [CommonModule, RoomsListComponent, HeaderComponent, RouterModule]
 })
 export class RoomsComponent implements OnInit, AfterViewInit {
 
@@ -44,21 +46,7 @@ onRoomSelected(room: any): void {
   }
 
 // addRoom(){
-//   const room: RoomList = {
-//     // roomNumber: '105',
-//     roomType: 'Family',
-//     amenities: 'AC, TV, WiFi, Kitchen',
-//     price: 150,
-//     photos: 'https://example.com/family.jpg',
-//     checkinTime: new Date('2025-10-01T14:00:00'),
-//     checkoutTime: new Date('2025-10-02T12:00:00'),
-//     rating: 4.2,
-//   };
-//     // this.roomList = [...this.roomList, room];
-//     this.roomsService.addRoom(room).subscribe((data) => {
-//       this.roomList = [...this.roomList, data];
-//       console.log('Room added:', data);
-//     })
+//   this.router.navigate(['rooms', 'add']);
 // }
 
 editRoom(){
