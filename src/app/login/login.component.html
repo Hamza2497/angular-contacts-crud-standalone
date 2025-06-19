@@ -1,10 +1,11 @@
 <form #loginForm="ngForm">
     <div class="formGroup">
         <input #emailInput="ngModel" hinvEmailvalidator hinvHover color="#cbf5dd" type="email" autocomplete="email" class="form-control" placeholder="Provide your Email" name="name" [(ngModel)]="email"  required>
-        <div>
-            {{emailInput.errors | json}}
-        </div>
     </div>
+    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="alert alert-danger">
+            <div *ngIf="emailInput.errors?.['required']">Email is required.</div>
+            <div *ngIf="emailInput.errors?.['invalidEmail']">Email must end with &#64;example.com.</div>
+        </div>
     <div class="formGroup">
         <input hinvHover color="#cbf5dd" type="password" autocomplete="current-password" class="form-control" placeholder="Enter your Password" name="password" [(ngModel)]="password" required>
     </div>
