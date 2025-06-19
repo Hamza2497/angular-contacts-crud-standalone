@@ -7,14 +7,21 @@ import { RoomsAddComponent } from './rooms/rooms-add/rooms-add.component';
 import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
-    {path: 'rooms', component: RoomsComponent,
+    {path: 'rooms',
+        loadComponent: () =>
+        import('./rooms/rooms.component').then(m => m.RoomsComponent),
         children : [
-            {path: 'add', component: RoomsAddComponent},
-            {path: ':id', component: RoomsBookingComponent}
+            {path: 'add', loadComponent: () =>
+        import('./rooms/rooms-add/rooms-add.component').then(m => m.RoomsAddComponent)},
+            {path: ':id', loadComponent: () =>
+        import('./rooms/rooms-booking/rooms-booking.component').then(m => m.RoomsBookingComponent)}
         ]
     },
-    {path: 'employee', component: EmployeeComponent},
-    {path: 'login', component: LoginComponent},
+    {path: 'employee', loadComponent: () =>
+        import('./employee/employee.component').then(m => m.EmployeeComponent)},
+    {path: 'login', loadComponent: () =>
+        import('./login/login.component').then(m => m.LoginComponent)},
     {path: '', redirectTo: 'login', pathMatch: 'full'}, // Redirect to login by default
-    {path: '**', component: NotfoundComponent} // Wildcard route for a 404 page
+    {path: '**',loadComponent: () =>
+      import('./notfound/notfound.component').then(m => m.NotfoundComponent)} // Wildcard route for a 404 page
 ];
